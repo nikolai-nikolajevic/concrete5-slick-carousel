@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.concrete5.org/doctrine-xml/0.5" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.concrete5.org/doctrine-xml/0.5 http://concrete5.github.io/doctrine-xml/doctrine-xml-0.5.xsd">
+
+    <table name="btSlickCarousel">
+        <field name="bID" type="integer">
+            <unsigned/>
+            <key/>
+        </field>
+        <field name="hideDots" type="boolean"/>
+        <field name="hideArrows" type="boolean"/>
+        <field name="infinite" type="boolean"/>
+        <field name="centerMode" type="boolean"/>
+        <field name="autoplay" type="boolean"/>
+        <field name="itemsmobile" type="integer">
+            <unsigned/>
+        </field>
+        <field name="itemstablet" type="integer">
+            <unsigned/>
+        </field>
+        <field name="itemsdesktop" type="integer">
+            <unsigned/>
+        </field>
+        <field name="thumbwidth" type="integer">
+            <unsigned/>
+        </field>
+        <field name="thumbheight" type="integer">
+            <unsigned/>
+        </field>
+    </table>
+
+    <table name="btSlickCarouselItem">
+        <field name="id" type="integer">
+            <unsigned/>
+            <autoincrement/>
+            <key/>
+        </field>
+        <field name="bID" type="integer">
+            <unsigned/>
+        </field>
+        <field name="fID" type="integer">
+            <unsigned/>
+            <default value="0"/>
+        </field>
+        <field name="title" type="string" size="255"/>
+        <field name="carcontent" type="text"/>
+        <field name="sort" type="integer"/>
+    </table>
+</schema>

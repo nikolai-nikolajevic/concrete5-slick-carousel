@@ -1,0 +1,19 @@
+.slick-slide img {
+    width: 100%;
+}
+.slick-slide:focus {
+    outline: none;
+}
+ul.carousel-item-container {
+    margin: 0;
+    padding: 0;
+}
+.slick-arrow {
+    z-index: 1;
+}
+.slick-next {
+    right: 15px;
+}
+.slick-prev {
+    left: 15px;
+}
