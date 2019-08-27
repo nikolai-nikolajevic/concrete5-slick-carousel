@@ -1,46 +1,55 @@
-$(document).ready(function () {
-    // Helper function
-    function convertIntToBool(int) {
-        if (int == 1) {
-            return true;
-        } else {
-            return false;
+// get all slider
+$slickSlider = $('.slick-carousel');
+
+$slickSlider.each(function(){
+    item = $(this).find('.carousel-item-container');
+    slickID = $(this).attr('data-slick-bID');
+    
+    $.ajax({
+        dataType: "json",
+        type: "POST",
+        url: '/slick/getData/' + slickID,
+        async: false,
+        success: function (response) {
+            initSlick(item, response);
         }
-    }
-
-    // get slider
-    $slickSlider = $('.slick-carousel ul.carousel-item-container');
-
-    // get parameters from slider
-    slidesToShowOnSmall = parseInt($slickSlider.attr("data-small-visible"));
-    slidesToShowOnMedium = parseInt($slickSlider.attr("data-medium-visible"));
-    slidesToShowOnLarge = parseInt($slickSlider.attr("data-large-visible"));
-    infinite = convertIntToBool($slickSlider.attr("data-infinite"));
-    dots = !convertIntToBool($slickSlider.attr("data-dots"));
-    arrows = !convertIntToBool($slickSlider.attr("data-arrows"));
-
-    // init Slider
-    initSlick()
-
+    });
 });
 
-function initSlick(params) {
-    $slickSlider.slick({
+
+// Helper function
+function convertIntToBool(int) {
+    if (int == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function initSlick(item, params) {
+    dots = !convertIntToBool(params['hideDots']);
+    arrows = !convertIntToBool(params['hideArrows']);
+    infinite = convertIntToBool(params['infinite']);
+    itemsmobile = parseInt(params['itemsmobile']);
+    itemstablet = parseInt(params['itemstablet']);
+    itemsdesktop = parseInt(params['itemsdesktop']);
+
+    item.slick({
         mobileFirst: true,
-        slidesToShow: slidesToShowOnSmall,
+        slidesToShow: itemsmobile,
         dots: dots,
         arrows: arrows,
         infinite: infinite,
         responsive: [{
                 breakpoint: 639,
                 settings: {
-                    slidesToShow: slidesToShowOnMedium
+                    slidesToShow: itemstablet,
                 }
             },
             {
                 breakpoint: 1023,
                 settings: {
-                    slidesToShow: slidesToShowOnLarge,
+                    slidesToShow: itemsdesktop,
                 }
             }
         ]

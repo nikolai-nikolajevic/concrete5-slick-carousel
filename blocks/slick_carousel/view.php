@@ -6,7 +6,7 @@ $c = Page::getCurrentPage();
 ?>
 
 
-<div class="slick-carousel" id="slick-carousel-<?php echo $bID?>">
+<div class="slick-carousel" data-slick-bID="<?php echo $bID?>" id="slick-carousel-<?php echo $bID?>">
     <?php  if($c->isEditMode()){
         $loc = Localization::getInstance();
         $loc->pushActiveContext(Localization::CONTEXT_UI); ?>
@@ -27,7 +27,7 @@ $c = Page::getCurrentPage();
         <?php
         $loc->popActiveContext();
     } else {?>
-    <ul class="carousel-item-container" data-infinite="<?php echo $infinite?>" data-arrows="<?php echo $hideArrows?>" data-dots="<?php echo $hideDots?>" data-small-visible="<?php echo $itemsmobile?>" data-medium-visible="<?php echo $itemstablet?>" data-large-visible="<?php echo $itemsdesktop?>">
+    <ul class="carousel-item-container">
             <?php  
             foreach($items as $item){ 
                 $imgObj = File::getByID($item['fID']); 

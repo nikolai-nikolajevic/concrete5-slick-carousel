@@ -16,7 +16,9 @@ class Controller extends Package
 	protected $appVersionRequired = '8.0.0';
 	protected $pkgVersion = '1.0';
 	
-	
+    protected $pkgAutoloaderRegistries = [
+        'src/SlickCarousel' => '\Concrete\Package\SlickCarousel\Src\SlickCarousel',
+    ];
 	
 	public function getPackageDescription()
 	{
@@ -37,6 +39,8 @@ class Controller extends Package
 
     public function on_start()
     {
+        Route::register('/slick/getData/{bID}', '\Concrete\Package\SlickCarousel\Src\SlickCarousel\Helper::getData');
+
         $al = AssetList::getInstance();
         $al->register(
             'javascript', 'slickJS', '../packages/slick_carousel/blocks/slick_carousel/slick/slick.min.js',
