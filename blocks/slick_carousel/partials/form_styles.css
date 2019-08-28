@@ -1,0 +1,29 @@
+/* Image Selector */
+.select-image {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    background: white;
+    border: 1px solid gray
+}
+.select-image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Panel */
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.panel-body {
+    display: none;
+}
+.drag-handle {
+    cursor: move;
+    margin-left: 10px;
+}

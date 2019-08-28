@@ -1,9 +1,12 @@
 <?php 
 namespace Concrete\Package\SlickCarousel\Block\SlickCarousel;
+defined('C5_EXECUTE') or die("Access Denied.");
+
 use \Concrete\Core\Block\BlockController;
 use Loader;
 use Page;
-defined('C5_EXECUTE') or die("Access Denied.");
+use View;
+
 class Controller extends BlockController
 {
     protected $btTable = 'btSlickCarousel';
@@ -33,6 +36,8 @@ class Controller extends BlockController
         $this->requireAsset('redactor'); 
         $this->requireAsset('core/file-manager'); 
         $this->requireAsset('core/sitemap');  
+        
+        View::getInstance()->addHeaderItem(Loader::helper('html')->css('/packages/slick_carousel/blocks/slick_carousel/partials/form_styles.css'));
         
         $db = Loader::db();
         $items = $db->GetAll('SELECT * from btSlickCarouselItem WHERE bID = ? ORDER BY sort', array($this->bID));

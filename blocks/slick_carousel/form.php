@@ -7,9 +7,6 @@ $editorJavascript = Core::make('editor')->outputStandardEditorInitJSFunction();
 $fp = FilePermissions::getGlobal();
 $tp = new TaskPermission(); 
 
-// Load form styles. Don't like to see it here :P
-include_once 'partials/form_styles.html';
-
 $tabs = [
     ['pane-items' . $getString, t('Elements'), true],
     ['pane-settings' . $getString, t('Settings')],
