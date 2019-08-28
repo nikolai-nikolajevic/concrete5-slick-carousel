@@ -27,22 +27,25 @@ $c = Page::getCurrentPage();
         <?php
         $loc->popActiveContext();
     } else {?>
-    <ul class="carousel-item-container">
-            <?php  
-            foreach($items as $item){ 
-                $imgObj = File::getByID($item['fID']); 
-            ?>
-            <li class="carousel-item">
-                <div class="item-inner">
-                    <?php  if (is_object($imgObj)){?>
-                        <img src="<?php echo $ih->getThumbnail($imgObj,$thumbwidth,$thumbheight,true)->src?>">
-                    <?php  } ?>
-                    <h3><?php echo $item['title']?></h3>
-                    <?php echo $item['carcontent']?>
-                </div>
-            </li>
-        <?php  
-        }//foreach ?>
-    </ul>
+    <div class="carousel-wrap">
+        <ul class="carousel-item-container">
+                <?php  
+                foreach($items as $item){ 
+                    $imgObj = File::getByID($item['fID']); 
+                ?>
+                <li class="carousel-item">
+                    <div class="item-inner">
+                        <?php  if (is_object($imgObj)){?>
+                            <img src="<?php echo $ih->getThumbnail($imgObj,$thumbwidth,$thumbheight,true)->src?>">
+                        <?php  } ?>
+                        <h3><?php echo $item['title']?></h3>
+                        <?php echo $item['carcontent']?>
+                    </div>
+                </li>
+                <?php  
+            }//foreach ?>
+        </ul>
+        <div class="preloader"></div>
+    </div>
     <?php  } ?>
 </div>

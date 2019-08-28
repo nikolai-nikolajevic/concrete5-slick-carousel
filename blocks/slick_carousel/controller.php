@@ -29,6 +29,8 @@ class Controller extends BlockController
         $this->requireAsset('redactor');
         $this->requireAsset('core/file-manager');
         $this->requireAsset('core/sitemap');
+
+        View::getInstance()->addHeaderItem(Loader::helper('html')->css('/packages/slick_carousel/blocks/slick_carousel/partials/form_styles.css'));
     }
 
     public function edit()

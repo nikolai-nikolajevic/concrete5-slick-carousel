@@ -5,18 +5,20 @@ $slickSlider.each(function(){
     item = $(this).find('.carousel-item-container');
     slickID = $(this).attr('data-slick-bID');
     
+    ajax(item, slickID);
+
+});
+
+function ajax(item, slickID) {
     $.ajax({
         dataType: "json",
         type: "POST",
         url: '/slick/getData/' + slickID,
-        async: false,
         success: function (response) {
             initSlick(item, response);
         }
     });
-});
-
-
+}
 // Helper function
 function convertIntToBool(int) {
     if (int == 1) {
@@ -54,4 +56,5 @@ function initSlick(item, params) {
             }
         ]
     });
+    item.parent().find('.preloader').css('opacity', '0');
 }
