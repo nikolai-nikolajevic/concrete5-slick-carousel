@@ -12,3 +12,8 @@ For now you can set up:
 - thumbnail size
 
 …more features wip…
+
+## Installation
+Download this in your 'packages' folder. Rename the folder to **slick_carousel**
+
+Install it in the backend.
